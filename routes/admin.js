@@ -1,0 +1,21 @@
+const express = require("express");
+const path = require("path");
+const rootDir = require("../util/path");
+
+const Router = express.Router();
+
+// /admin/add-product/ => GET
+Router.get("/add-product", (req, res, next) => {
+	console.log("In '/users' path");
+	res.sendFile(path.join(rootDir, "views", "add-product.html"));
+});
+
+// /admin/add-product/ => POST
+Router.post("/add-product", (req, res, next) => {
+	console.log("In '/product' path");
+
+	console.log(req.body);
+	res.redirect("/");
+});
+
+module.exports = Router;
